@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.4.1/dist/css/bootstrap.min.css" integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <title>Weather App</title>
+</head>
+<body>
+    <div class="row">
+        <header class="col-12">
+            <h1 class="text-center "><i class="bi bi-cloud-sun"></i>WEATHER!</h1>
+        </header>
+    </div>
+    <main class="row d-flex min-vh-100 no-gutters">
+        <div class="col-3 bg-secondary text-white justify-content-around border border-dark">
+            <h2 class="text-center">Search by City</h2>
+            <div class="row d-flex justify-content-center">
+                <!-- <div class="form-group col-xs-center col-md-center"> -->
+                    <label for="city" class="form-label">City, ST</label>
+                </div>
+                <div class="row d-flex justify-content-center input-group">    
+                    <input type="text" class="form-control justify-content-center col-6">
+                    <input type="text" class="form-control justify-content-center col-3">
+                </div>
+                <div class="row d-flex justify-content-around mt-auto">  
+                    <button class="btn btn-primary justify-content-around mt-2 mb-2" type="submit" value="submit">Submit</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-9 bg-secondary">
+
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>

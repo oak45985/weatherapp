@@ -1,8 +1,7 @@
 var userFormEl = document.querySelector("#user-form");
 var cityInputEl = document.querySelector("#city-name")
 var stateInputEl = document.querySelector("#city-initials")
-var lat = 32.78
-var lon = -96.81
+var currentContainerEl = document.querySelector("#current-display")
 var currentDay = [];
 var futureDays = [];
 
@@ -35,7 +34,7 @@ var getLatLong = function(cityName, stateInit) {
             response.json().then(function(data) {
                 lat = data[0].lat;
                 lon = data[0].lon;
-                getWeather(lat, lon);
+                getWeather(lat, lon, cityName, stateInit);
             });
         }  else {
             console.log("something aint right");
@@ -43,7 +42,7 @@ var getLatLong = function(cityName, stateInit) {
     });
 };
 
-var getWeather = function(lat, lon) {
+var getWeather = function(lat, lon, cityName, stateInit) {
 
     var apiUrl2 = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&exclude=minutely,hourly&units=standard&appid=7fe9a570ce699e734be31068fc9c9690"
 
@@ -52,7 +51,7 @@ var getWeather = function(lat, lon) {
             response.json().then(function(data) {
                 currentDay = data.current;
                 futureDays = data.daily;
-                displayCurrentDay(currentDay);
+                displayCurrentDay(currentDay, cityName, stateInit);
                 displayFutureDays(futureDays);
                 // console.log(JSON.stringify(currentDay) + " " + futureDays);
             });
@@ -62,13 +61,28 @@ var getWeather = function(lat, lon) {
     });
 }
 
-var displayCurrentDay = function(currentDay) {
-    // var convertTemp = (1.8 * (currentDay.temp - 273)) + 32;
-    console.log(currentDay.temp + "°F");
-    // var convertWind = currentDay.wind_speed * 2.237;
-    console.log(currentDay.wind_speed + " MPH");
-    console.log(currentDay.humidity + "%");
-    console.log(currentDay.uvi);
+var displayCurrentDay = function(currentDay, cityName, stateInit) {
+
+    var currentDayNameEl = document.createElement("h2");
+    currentDayNameEl.classList = "card-title text-dark";
+    currentDayNameEl.textContent = cityName + ", " + stateInit;
+    currentContainerEl.appendChild(currentDayNameEl);
+
+    var currentDayInfoEl = document.createElement("p");
+    currentDayInfoEl.classList = "card-title text-dark";
+    currentDayInfoEl.innerHTML = "<p class='card-text text-dark'>" 
+    + currentDay.temp + "°F<br>" 
+    + currentDay.wind_speed + " MPH<br>"
+    + currentDay.humidity + "%<br>"
+    + "UVI Index: "+ currentDay.uvi + "</p>";
+    currentContainerEl.appendChild(currentDayInfoEl);
+
+    // // var convertTemp = (1.8 * (currentDay.temp - 273)) + 32;
+    // console.log(currentDay.temp + "°F");
+    // // var convertWind = currentDay.wind_speed * 2.237;
+    // console.log(currentDay.wind_speed + " MPH");
+    // console.log(currentDay.humidity + "%");
+    // console.log(currentDay.uvi);
 }
 
 var displayFutureDays = function(futureDays) {

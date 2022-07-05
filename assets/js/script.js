@@ -28,19 +28,22 @@ var getCityState = function(event) {
 
 var getLatLong = function(cityName, stateInit) {
     // geocoding
-    var apiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + cityName + "," + stateInit + "&limit=1&appid=7fe9a570ce699e734be31068fc9c9690"
+    var apiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + cityName + "," + stateInit + ",US&limit=5&appid=7fe9a570ce699e734be31068fc9c9690"
 
     fetch(apiUrl).then(function(response) {
         if (response.ok) {
-            response.json();
-            console.log(response)
-        } else {
+            response.json().then(function(data) {
+                lat = data[0].lat;
+                lon = data[0].lon;
+                getWeather(lat, lon);
+            });
+        }  else {
             console.log("something aint right");
         }
     });
 };
 
-var getWeather = function() {
+var getWeather = function(lat, lon) {
 
     var apiUrl2 = "https://api.openweathermap.org/data/2.5/onecall?lat=" + lat + "&lon=" + lon + "&units=imperial&exclude=minutely,hourly&units=standard&appid=7fe9a570ce699e734be31068fc9c9690"
 
@@ -76,6 +79,6 @@ var displayFutureDays = function(futureDays) {
     console.log(futureDays[4].temp.day + " °F", futureDays[4].wind_speed + " MPH", futureDays[0].humidity + "%");
 }
 
-getWeather();
+// getWeather();
 
 userFormEl.addEventListener("submit", getCityState);

@@ -61,15 +61,19 @@ var getWeather = function() {
 
 var displayCurrentDay = function(currentDay) {
     // var convertTemp = (1.8 * (currentDay.temp - 273)) + 32;
-    console.log(currentDay.temp);
+    console.log(currentDay.temp + "°F");
     // var convertWind = currentDay.wind_speed * 2.237;
-    console.log(currentDay.wind_speed);
+    console.log(currentDay.wind_speed + " MPH");
+    console.log(currentDay.humidity + "%");
+    console.log(currentDay.uvi);
 }
 
 var displayFutureDays = function(futureDays) {
-    console.log(futureDays[0].temp);
-    console.log(futureDays[1].temp);
-    console.log(futureDays[2].temp);
+    console.log(futureDays[0].temp.day + " °F", futureDays[0].wind_speed + " MPH", futureDays[0].humidity + "%");
+    console.log(futureDays[1].temp.day + " °F", futureDays[1].wind_speed + " MPH", futureDays[0].humidity + "%");
+    console.log(futureDays[2].temp.day + " °F", futureDays[2].wind_speed + " MPH", futureDays[0].humidity + "%");
+    console.log(futureDays[3].temp.day + " °F", futureDays[3].wind_speed + " MPH", futureDays[0].humidity + "%");
+    console.log(futureDays[4].temp.day + " °F", futureDays[4].wind_speed + " MPH", futureDays[0].humidity + "%");
 }
 
 getWeather();

@@ -23,13 +23,14 @@
                 <!-- <div class="form-group col-xs-center col-md-center"> -->
                     <label for="city" class="form-label">City, ST</label>
                 </div>
-                <div class="row d-flex justify-content-center input-group">    
-                    <input type="text" class="form-control justify-content-center col-6">
-                    <input type="text" class="form-control justify-content-center col-3">
-                </div>
-                <div class="row d-flex justify-content-around mt-auto">  
-                    <button class="btn btn-primary justify-content-around mt-2 mb-2" type="submit" value="submit">Submit</button>
-                </div>
+                <form id="user-form" class="row d-flex justify-content-center input-group">    
+                    <input type="text" class="form-control justify-content-center col-6 text-dark" placeholder="City" id="city-name">
+                    <input type="text" class="form-control justify-content-center col-3 text-dark" placeholder="ST" maxlength="2" id="city-initials">
+                    <!-- <button class="btn btn-primary justify-content-around mt-2 mb-2" type="submit" value="submit">Submit</button> -->
+                    <div class="col-auto">
+                        <button type="submit" class="btn btn-primary" value="submit">Submit</button>
+                    </div>
+                </form>
             </div>
         </div>
         <div class="col-9 bg-secondary">

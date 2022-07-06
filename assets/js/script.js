@@ -3,6 +3,10 @@ var cityInputEl = document.querySelector("#city-name")
 var stateInputEl = document.querySelector("#city-initials")
 var currentContainerEl = document.querySelector("#current-display")
 var dayZeroContainerEl = document.querySelector("#future-display-one")
+var dayOneContainerEl = document.querySelector("#future-display-two")
+var dayTwoContainerEl = document.querySelector("#future-display-three")
+var dayThreeContainerEl = document.querySelector("#future-display-four")
+var dayFourContainerEl = document.querySelector("#future-display-five")
 var currentDay = [];
 var futureDays = [];
 
@@ -67,7 +71,7 @@ var displayCurrentDay = function(currentDay, cityName, stateInit) {
     var currentDayNameEl = document.createElement("h2");
     currentDayNameEl.classList = "card-title text-dark";
     // ADD ICON IN TEXTCONTENT BELOW
-    currentDayNameEl.textContent = cityName + ", " + stateInit; 
+    currentDayNameEl.textContent = cityName + ", " + stateInit + " (" + moment(new Date()).format("M/D/YY") + ")"; 
     currentContainerEl.appendChild(currentDayNameEl);
 
     var currentDayInfoEl = document.createElement("p");
@@ -91,16 +95,48 @@ var displayFutureDays = function(futureDays) {
 
     var futureDayInfoEl = document.createElement("p");
     futureDayInfoEl.classList = "card-title text-dark";
-    futureDayInfoEl.innerHTML = "<p class='card-text text-dark'>" 
+    futureDayInfoEl.innerHTML = "<h5 class='card-title text-dark'>" + moment(new Date()).add(1, "d").format("M/D/YY") + "</h5>"
+    + "<p class='card-text text-dark'>" 
     + futureDays[0].temp.day + "°F<br>" 
     + futureDays[0].wind_speed + " MPH<br>"
     + futureDays[0].humidity + "%</p>";
     dayZeroContainerEl.appendChild(futureDayInfoEl);
-    console.log(futureDays[0].temp.day + " °F", futureDays[0].wind_speed + " MPH", futureDays[0].humidity + "%");
-    console.log(futureDays[1].temp.day + " °F", futureDays[1].wind_speed + " MPH", futureDays[0].humidity + "%");
-    console.log(futureDays[2].temp.day + " °F", futureDays[2].wind_speed + " MPH", futureDays[0].humidity + "%");
-    console.log(futureDays[3].temp.day + " °F", futureDays[3].wind_speed + " MPH", futureDays[0].humidity + "%");
-    console.log(futureDays[4].temp.day + " °F", futureDays[4].wind_speed + " MPH", futureDays[0].humidity + "%");
+
+    var futureDayTwoInfoEl = document.createElement("p");
+    futureDayTwoInfoEl.classList = "card-title text-dark";
+    futureDayTwoInfoEl.innerHTML = "<h5 class='card-title text-dark'>" + moment(new Date()).add(2, "d").format("M/D/YY") + "</h5>"
+    + "<p class='card-text text-dark'>" 
+    + futureDays[1].temp.day + "°F<br>" 
+    + futureDays[1].wind_speed + " MPH<br>"
+    + futureDays[1].humidity + "%</p>";
+    dayOneContainerEl.appendChild(futureDayTwoInfoEl);
+
+    var futureDayThreeInfoEl = document.createElement("p");
+    futureDayThreeInfoEl.classList = "card-title text-dark";
+    futureDayThreeInfoEl.innerHTML = "<h5 class='card-title text-dark'>" + moment(new Date()).add(3, "d").format("M/D/YY") + "</h5>"
+    + "<p class='card-text text-dark'>" 
+    + futureDays[2].temp.day + "°F<br>" 
+    + futureDays[2].wind_speed + " MPH<br>"
+    + futureDays[2].humidity + "%</p>";
+    dayTwoContainerEl.appendChild(futureDayThreeInfoEl);
+
+    var futureDayFourInfoEl = document.createElement("p");
+    futureDayFourInfoEl.classList = "card-title text-dark";
+    futureDayFourInfoEl.innerHTML = "<h5 class='card-title text-dark'>" + moment(new Date()).add(4, "d").format("M/D/YY") + "</h5>"
+    + "<p class='card-text text-dark'>" 
+    + futureDays[3].temp.day + "°F<br>" 
+    + futureDays[3].wind_speed + " MPH<br>"
+    + futureDays[3].humidity + "%</p>";
+    dayThreeContainerEl.appendChild(futureDayFourInfoEl);
+
+    var futureDayFiveInfoEl = document.createElement("p");
+    futureDayFiveInfoEl.classList = "card-title text-dark";
+    futureDayFiveInfoEl.innerHTML = "<h5 class='card-title text-dark'>" + moment(new Date()).add(5, "d").format("M/D/YY") + "</h5>"
+    + "<p class='card-text text-dark'>" 
+    + futureDays[4].temp.day + "°F<br>" 
+    + futureDays[4].wind_speed + " MPH<br>"
+    + futureDays[4].humidity + "%</p>";
+    dayFourContainerEl.appendChild(futureDayFiveInfoEl);
 }
 
 // getWeather();

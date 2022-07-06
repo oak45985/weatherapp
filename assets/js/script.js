@@ -74,6 +74,17 @@ var displayCurrentDay = function(currentDay, cityName, stateInit) {
     currentDayNameEl.textContent = cityName + ", " + stateInit + " (" + moment(new Date()).format("M/D/YY") + ")"; 
     currentContainerEl.appendChild(currentDayNameEl);
 
+    var image = document.createElement("img");
+
+    image.setAttribute (
+        "src",
+        "http://openweathermap.org/img/wn/" + currentDay.current.weather[0].icon + "@2x.png"
+    );
+
+    console.log(currentDay.current.weather[0]);
+
+    currentContainerEl.appendChild(image);
+
     var currentDayInfoEl = document.createElement("p");
     currentDayInfoEl.classList = "card-title text-dark";
     currentDayInfoEl.innerHTML = "<p class='card-text text-dark'>" 

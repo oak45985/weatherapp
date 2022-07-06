@@ -21,11 +21,11 @@ var getCityState = function(event) {
         // function to store (cityName) + (stateInit);
         cityInputEl.value = "";
         stateInputEl.value = "";
-        console.log(cityName + " is the city you've input. " + stateInit + " is the state you've input.");
-        console.log("shit worked!");
+        // console.log(cityName + " is the city you've input. " + stateInit + " is the state you've input.");
+        // console.log("shit worked!");
     } else {
-        alert("please enter shit right.");
-        console.log("c'mon fucker");
+        alert("Please enter a City and ST.");
+        // console.log("c'mon fucker");
     }
     
 }
@@ -61,7 +61,7 @@ var getWeather = function(lat, lon, cityName, stateInit) {
                 // console.log(JSON.stringify(currentDay) + " " + futureDays);
             });
         } else {
-            console.log("something aint right 2");
+            console.log("something aint right v2");
         }
     });
 }
@@ -80,8 +80,21 @@ var displayCurrentDay = function(currentDay, cityName, stateInit) {
     + currentDay.current.temp + "°F<br>" 
     + currentDay.current.wind_speed + " MPH<br>"
     + currentDay.current.humidity + "%<br>"
-    + "UVI Index: "+ currentDay.current.uvi + "</p>";
+    + "UV Index: "+ currentDay.current.uvi + "</p>";
     currentContainerEl.appendChild(currentDayInfoEl);
+
+    var uvIndicatorEl = document.createElement("p")
+    if (currentDay.current.uvi < 0) {
+        uvIndicatorEl.classList = "badge-pill badge-success col-2 align-middle";
+        console.log("yeah")
+    } else {
+        uvIndicatorEl.classList = "badge-pill badge-warning col-2 align-middle";
+        console.log("no")
+    };
+    uvIndicatorEl.innerHTML = "<span class='pb-2 align-middle'>UV Index: " + currentDay.current.uvi + "</span>";
+    // uvIndicatorEl.textContent = "UV Index: " + currentDay.current.uvi;
+    currentContainerEl.appendChild(uvIndicatorEl);
+
 
     // // var convertTemp = (1.8 * (currentDay.temp - 273)) + 32;
     // console.log(currentDay.temp + "°F");

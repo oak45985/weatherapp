@@ -15,7 +15,7 @@ THEN I am again presented with current and future conditions for that city
 
 # Site Image
 
-
+![Weather App Image](./assets/images/Screen%20Shot%202022-07-07%20at%206.45.51%20PM.png)
 
 # Site Link
 https://oak45985.github.io/weatherapp/

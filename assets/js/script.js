@@ -29,7 +29,7 @@ var getCityState = function(event) {
 
 var getLatLong = function(cityName, stateInit) {
     // geocoding
-    var apiUrl = "http://api.openweathermap.org/geo/1.0/direct?q=" + cityName + "," + stateInit + ",US&limit=5&appid=7fe9a570ce699e734be31068fc9c9690"
+    var apiUrl = "https://api.openweathermap.org/geo/1.0/direct?q=" + cityName + "," + stateInit + ",US&limit=5&appid=7fe9a570ce699e734be31068fc9c9690"
 
     fetch(apiUrl).then(function(response) {
         if (response.ok) {
